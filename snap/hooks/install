@@ -2,10 +2,11 @@
 
 set -eux
 
-# setup pid dir, not versioned
+# setup data/pid dirs, not versioned
 mkdir -p ${SNAP_COMMON}/var/run/zookeeper
+mkdir -p ${SNAP_COMMON}/var/lib/zookeeper
 
-# setup log dir, versioned
+# setup log dirs, versioned
 mkdir -p ${SNAP_DATA}/var/log/zookeeper/txlog
 
 # setup zookeeper config, versioned

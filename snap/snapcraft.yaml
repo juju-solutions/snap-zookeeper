@@ -176,7 +176,7 @@ parts:
     prepare: |
       cp ../../bigtop/build/bigtop-snap.bom \
         ../../bigtop/build/bigtop-packages/src/common/zookeeper/bigtop.bom
-      cp ../../bigtop/build/bigtop-packages/src/common/zookeeper/zoo.cfg .
+      cp ../../../snap/sources/zoo.cfg .
       cp ../../bigtop/build/bigtop-packages/src/common/zookeeper/zookeeper.1 .
       cp ../../bigtop/build/bigtop-packages/src/common/zookeeper/zookeeper.default .
       chmod 755 ../../bigtop/build/bigtop-packages/src/common/zookeeper/do-component-build
