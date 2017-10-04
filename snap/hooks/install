@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -eux
+
+# setup pid dir, not versioned
+mkdir -p ${SNAP_COMMON}/var/run/zookeeper
+
+# setup log dir, versioned
+mkdir -p ${SNAP_DATA}/var/log/zookeeper/txlog
+
+# setup zookeeper config, versioned
+mkdir -p ${SNAP_DATA}/etc/zookeeper
+cp -a ${SNAP}/etc/zookeeper/conf.dist ${SNAP_DATA}/etc/zookeeper
+
+# if we dont have config yet, link the dist config
+ZOOKEEPER_CONF_DIR=${SNAP_DATA}/etc/zookeeper/conf
+if [ ! -e ${ZOOKEEPER_CONF_DIR} ]; then
+  ln -s conf.dist ${ZOOKEEPER_CONF_DIR}
+fi
