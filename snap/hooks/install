@@ -17,4 +17,7 @@ cp -a ${SNAP}/etc/zookeeper/conf.dist ${SNAP_DATA}/etc/zookeeper
 ZOOKEEPER_CONF_DIR=${SNAP_DATA}/etc/zookeeper/conf
 if [ ! -e ${ZOOKEEPER_CONF_DIR} ]; then
   ln -s conf.dist ${ZOOKEEPER_CONF_DIR}
+
+  # set config to use a SNAP_COMMON data dir
+  sed -e "s|/var/lib|${SNAP_COMMON}/var/lib|" -i ${ZOOKEEPER_CONF_DIR}/zoo.cfg
 fi
